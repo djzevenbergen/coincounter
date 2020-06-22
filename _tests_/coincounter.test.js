@@ -1,17 +1,16 @@
-import { Age } from './../src/planets.js';
+import { coinCounter } from './../src/coincounter.js';
+import { coinCounter2 } from './../src/coincounter.js';
+import { Counter } from './../src/coincounter.js';
 
-describe('ageCalc', function () {
-  let thisAge;
-  let birthDate;
-  beforeEach(function () {
-    birthDate = '2010-04-17'
-    thisAge = new Age("United States", birthDate);
-    thisAge.calculateAge();
+test('verifies that the Age object is created with the correct age property', function () {
+  let thisArray = [2, 1, 1, 1];
+  expect(coinCounter(.66)).toEqual(thisArray);
+});
 
-  });
+test('verifies that coinCounter2 returns an array conatining the number of quarters, dimes, nickels, and pennies needed to add up to the amount passed in as money', function () {
+  expect(coinCounter2(.66)).toEqual([2, 1, 1, 1]);
+});
 
-  test('verifies that the Age object is created with the correct age property', function () {
-    expect(thisAge.age).toEqual(10);
-
-  });
+test('verifies that quarter works as expected', function () {
+  expect(Counter.quarter(.55)).toEqual(2);
 });
